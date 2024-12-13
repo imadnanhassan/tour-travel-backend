@@ -1,34 +1,37 @@
-import { IUser } from "./user.interface";
-import UserModel from "./user.model";
+import { IUser } from './user.interface';
+import UserModel from './user.model';
 
 const createUser = async (payload: IUser): Promise<IUser> => {
   const result = await UserModel.create(payload);
+
   return result;
 };
 
-const getUsers = async () => {
-  const result = await UserModel.find()
-  return result
-}
+const getUser = async () => {
+  const result = await UserModel.find();
+  return result;
+};
 
-const getSingleUser = async (userId: string) => {
-  const result = await UserModel.findById(userId)
-  return result
-}
+const getSingleUser = async (id: string) => {
+  const result = await UserModel.findById(id);
+  return result;
+};
 
-const updateUser = async (userId: string, payload: IUser) => {
-  const result = await UserModel.findByIdAndUpdate(userId, payload, { new: true })
-  return result
-}
+const updateUser = async (id: string, data: IUser) => {
+  const result = await UserModel.findByIdAndUpdate(id, data, {
+    new: true,
+  });
+  return result;
+};
 
-const deleteUser = async (userId: string) => {
-  const result = await UserModel.findByIdAndDelete(userId)
-  return result
-}
+const deleteUser = async (id: string) => {
+  const result = await UserModel.findByIdAndDelete(id);
+  return result;
+};
 
 export const userService = {
   createUser,
-  getUsers,
+  getUser,
   getSingleUser,
   updateUser,
   deleteUser,
