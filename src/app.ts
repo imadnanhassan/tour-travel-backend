@@ -2,6 +2,7 @@ import express, { NextFunction, Request, Response } from 'express';
 import userRouter from './module/user/user.route';
 import tourRouter from './module/tour/tour.route';
 import { StatusCodes } from 'http-status-codes';
+import bookingRouter from './module/booking/booking.route';
 
 const app = express();
 
@@ -11,6 +12,7 @@ app.use(express.json());
 
 app.use('/api/v1/user', userRouter);
 app.use('/api/v1/tour', tourRouter);
+app.use('/api/v1/booking', bookingRouter);
 
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {
   console.log('error from app.ts global error', err);

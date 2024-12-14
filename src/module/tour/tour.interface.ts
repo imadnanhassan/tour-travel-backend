@@ -1,4 +1,4 @@
-import { HydratedDocument,Model  } from "mongoose";
+import { HydratedDocument, Model } from 'mongoose';
 
 export interface ITour {
   name: string;
@@ -11,6 +11,7 @@ export interface ITour {
   startLocation: string;
   locations: string[];
   slug: string;
+  availableSeats: number;
 }
 export interface ITourMethods {
   getNextNearestStartDateAndEndData(): {
